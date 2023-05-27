@@ -10,6 +10,8 @@ My task was to collect the following information for each course:
 - If it was thought in english
 - What was the study level of the course (bachelor, master, etc)
 
+This list contained the courses chosen by the exchanges students that would be attending the university in the fall 2023 semester.
+
 ## Data sources
 
 <details>
@@ -186,4 +188,137 @@ www.ntnu.edu/studies/courses/<strong>[course code]</strong>/2023#tab=omEmnet</di
 - the course codes "IMT3104" were replaced by code "PROG2051" because the website mentioned that "PROG2051" was now replacing "IMT3104"
 - the course codes "IIK500" were replaced by code "IIK5000"
 
-Because every failed http request was manually checked, along with scrapes that returned "Info not available" values
+Because every failed http request was manually checked, along with scrapes that returned "Info not available" values.
+
+10. The program output a csv file in the following format: 
+
+```
+"
+""course_code",""semester"",""language"",""location"",""level""
+""IMT4123",""AUTUMN 2023"",""English"",""Gjovik,Trondheim"",""Second degree level""
+""IMT4113",""AUTUMN 2023"",""English"",""Gjovik,Trondheim"",""Second degree level""
+"
+```
+11. The "find and replace" function of VS Code was used to replace "" by ". The first and last quotes were also removed.
+12. The Ø and Å characters were replaced by O and A to allow for seamless import in a MySQL database. 
+
+Final csv format: 
+
+```
+"course_code","semester","language","location","level"
+"IMT4123","AUTUMN 2023","English","Gjovik,Trondheim","Second degree level"
+"IMT4113","AUTUMN 2023","English","Gjovik,Trondheim","Second degree level"
+```
+
+<details>
+  <summary>Final csv file:</summary>
+  
+```
+"course_code","semester","language","location","level"
+"IMT4123","AUTUMN 2023","English","Gjovik,Trondheim","Second degree level"
+"IMT4113","AUTUMN 2023","English","Gjovik,Trondheim","Second degree level"
+"IMT4114","AUTUMN 2023","English","Gjovik","Second degree level"
+"IMT4887","AUTUMN 2023","English","Gjovik","Second degree level"
+"NFUT0030","Info not available","Norwegian","Alesund,Gjovik","Norwegian for international students"
+"TOL4018","AUTUMN 2023","English","Gjovik","Second degree level"
+"TOL4023","AUTUMN 2023","English","Gjovik","Second degree level"
+"TOL4012","AUTUMN 2023","English","Gjovik","Second degree level"
+"TOL4014","AUTUMN 2023","English","Gjovik","Second degree level"
+"IDG2003","AUTUMN 2023","English","Gjovik","Intermediate course, level II"
+"IMT4889","AUTUMN 2023","English","Gjovik","Second degree level"
+"PROG2007","AUTUMN 2023","English","Gjovik","Intermediate course, level II"
+"TTM4165","AUTUMN 2023","English","Alesund,Gjovik","Second degree level"
+"IIKG2001","AUTUMN 2023","English","Gjovik","Third-year courses, level III"
+"IIKG3005","AUTUMN 2023","English","Gjovik,Trondheim","Third-year courses, level III"
+"TPD4156","AUTUMN 2023","Norwegian","Trondheim","Third-year courses, level III"
+"IMT4312","AUTUMN 2023","English","Gjovik","Second degree level"
+"IMT4316","AUTUMN 2023","English","Gjovik","Second degree level"
+"IMT4898","Info not available","English","Gjovik","Second degree level"
+"IMT4309","AUTUMN 2023","English","Gjovik","Second degree level"
+"IDG4112","Info not available","English","Gjovik","Second degree level"
+"IMT4392","AUTUMN 2023","English","Gjovik","Second degree level"
+"IDIG4002","AUTUMN 2023","English","Gjovik","Second degree level"
+"PROG2002","AUTUMN 2023","English","Gjovik","Third-year courses, level III"
+"IMT4895","AUTUMN 2023","English","Gjovik","Second degree level"
+"IMT4304","AUTUMN 2023","English","Gjovik","Second degree level"
+"IMT4884","AUTUMN 2023","English","Gjovik","Second degree level"
+"SMF1212","Info not available","Info not available","Info not available","Info not available"
+"SMF3084F","AUTUMN 2023","Norwegian","Gjovik","Third-year courses, level III"
+"IMT3603","AUTUMN 2023","English","Gjovik","Third-year courses, level III"
+"IIK3100","AUTUMN 2023","English","Gjovik,Trondheim","Third-year courses, level III"
+"NFUT0060","AUTUMN 2023","Norwegian","Trondheim,Gjovik","Norwegian for international students"
+"PROG2053","AUTUMN 2023","English","Gjovik","Intermediate course, level II"
+"FENG2020","AUTUMN 2023","English, Norwegian","Gjovik","Intermediate course, level II"
+"FENG2022","SPRING 2024","English, Norwegian","Gjovik","Intermediate course, level II"
+"TEK2002","AUTUMN 2023","English","Gjovik","Intermediate course, level II"
+"TOL4015","AUTUMN 2023","English","Gjovik","Second degree level"
+"TOL4082","AUTUMN 2023","English","Gjovik","Second degree level"
+"IDG2012","AUTUMN 2023","English","Gjovik","Intermediate course, level II"
+"IDG2009","AUTUMN 2023","English","Gjovik","Intermediate course, level II"
+"IDG1006","AUTUMN 2023","English, Norwegian","Gjovik","Foundation courses, level I"
+"IDG1362","AUTUMN 2023","English","Gjovik,Trondheim","Foundation courses, level I"
+"IDG1100","AUTUMN 2023","English","Gjovik","Foundation courses, level I"
+"IMT4204","AUTUMN 2023","English","Gjovik,Trondheim","Second degree level"
+"TTM4536","AUTUMN 2023","English","Gjovik,Trondheim","Second degree level"
+"NFUT0031","Info not available","Info not available","Info not available","Info not available"
+"IDIG4321","AUTUMN 2023","English","Gjovik","Second degree level"
+"PROG2051","SPRING 2024","English","Gjovik","Third-year courses, level III"
+"SMF1200","AUTUMN 2023","English, Norwegian","Gjovik","Foundation courses, level I"
+"IIKG1001","AUTUMN 2023","English","Gjovik","Foundation courses, level I"
+"IDG2004","AUTUMN 2023","English","Gjovik","Intermediate course, level II"
+"IMT4203","AUTUMN 2023","English","Gjovik,Trondheim","Second degree level"
+"IMT4115","AUTUMN 2023","English","Gjovik,Trondheim","Second degree level"
+"IMT4305","Info not available","Info not available","Info not available","Info not available"
+"IMT4134","SPRING 2024","English","Gjovik","Second degree level"
+"IDG1292","AUTUMN 2023","English","Gjovik","Foundation courses, level I"
+"IMT4890","AUTUMN 2023","English","Gjovik","Second degree level"
+"IMT4135","AUTUMN 2023","English","Gjovik","Second degree level"
+"IMT4217","AUTUMN 2023","English","Gjovik,Trondheim","Second degree level"
+"IIK5000","AUTUMN 2023","English, Norwegian","Gjovik,Trondheim","Second degree level"
+"IIKG6503","SPRING 2024","Norwegian","Gjovik","Further education, higher degree level"
+```
+  
+</details>
+
+## Data analysis
+
+1. The csv file was imported in a MySQL database
+2. The following SQL querry was performed: 
+
+```sql
+SELECT 
+*
+FROM 
+course_data
+WHERE 
+(course_data.language NOT LIKE '%English%' AND course_data.level != "Norwegian for international students")
+OR
+course_data.location NOT LIKE '%Gjovik%'
+OR
+course_data.semester != "AUTUMN 2023";
+```
+The querry retrieved each course that did not meet the requirements.
+
+3. The resulting table was exported
+4. Ø and Å characters were reinserted in the table for finale presentation
+
+## Final product presented to the stakeholder
+
+| course_code | semester | language | location | level |
+| ----- | ----- | ----- | ----- | ----- |
+| NFUT0030 | Info not available | Norwegian | Alesund,Gjovik | Norwegian for international students |
+| TPD4156 | AUTUMN 2023 | Norwegian | Trondheim | Third-year courses, level III |
+| IMT4898 | Info not available | English | Gjovik | Second degree level |
+| IDG4112 | Info not available | English | Gjovik | Second degree level |
+| SMF1212 | Info not available | Info not available | Info not available | Info not available |
+| SMF3084F | AUTUMN 2023 | Norwegian | Gjovik | Third-year courses, level III |
+| FENG2022 | SPRING 2024 | English, Norwegian | Gjovik | Intermediate course, level II |
+| NFUT0031 | Info not available | Info not available | Info not available | Info not available |
+| PROG2051 | SPRING 2024 | English | Gjovik | Third-year courses, level III |
+| IMT4305 | Info not available | Info not available | Info not available | Info not available |
+| IMT4134 | SPRING 2024 | English | Gjovik | Second degree level |
+| IIKG6503 | SPRING 2024 | Norwegian | Gjovik | Further education, higher degree level |
+
+## Actions to take
+
+The stakeholder will notify each exchange student that selected one of those courses to select other courses.
